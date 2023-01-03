@@ -12,11 +12,11 @@
 
 let playerSelectionCaps;
 playerSelectionCaps = prompt("Rock paper or scissors?");
-console.log(playerSelectionCaps);
+
 
 let playerSelection;
 playerSelection =  playerSelectionCaps.toLowerCase();
-console.log(playerSelection);
+
  
 while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
     playerSelectionCaps = prompt("Pick one of the three values please");
@@ -30,7 +30,44 @@ rand *= options.length;
 rand = Math.floor(rand);
 return options[rand];
 }
-console.log(getComputerChoise());
+
+
+const computerSelection = getComputerChoise();
+console.log(computerSelection);
+
+if (playerSelection == computerSelection) {
+    console.log("draw"); }
+   
+else {
+    if (playerSelection == "rock") {
+        if (computerSelection == "paper") {
+            console.log("You lost.Paper wins rock!"); }
+        else {
+            console.log("You won.Rock beats scissors!");
+        }    
+        
+    }
+
+    else if (playerSelection == "paper") {
+        if (computerSelection == "rock") {
+            console.log("You won.Paper beats rock");}
+        else {
+            console.log("You lost.Scissor beats paper");
+        }
+    }
+
+    else if (playerSelection == "scissors") {
+        if (computerSelection == "rock") {
+            console.log("You lost.Rock beats scissors");}
+        else {
+            console.log("You won.Scissors beats paper");
+        }
+    }
+
+
+}    
+
+
 
     </script> 
 </body>
