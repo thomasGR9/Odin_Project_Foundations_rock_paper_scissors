@@ -23,7 +23,14 @@ while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelect
     playerSelection =  playerSelectionCaps.toLowerCase();
 }
 
-
+function getComputerChoise() {
+const options = ["rock", "paper", "scissors"];
+let rand = Math.random();
+rand *= options.length;
+rand = Math.floor(rand);
+return options[rand];
+}
+console.log(getComputerChoise());
 
     </script> 
 </body>
