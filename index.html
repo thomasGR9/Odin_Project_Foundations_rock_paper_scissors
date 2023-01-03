@@ -28,7 +28,7 @@ while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelect
     playerSelection =  playerSelectionCaps.toLowerCase();
 }
 
-function getComputerChoise() {
+function getComputerChoice() {
 const options = ["rock", "paper", "scissors"];
 let rand = Math.random();
 rand *= options.length;
@@ -37,7 +37,7 @@ return options[rand];
 }
 
 
-const computerSelection = getComputerChoise();
+const computerSelection = getComputerChoice();
 console.log(computerSelection);
 
 
