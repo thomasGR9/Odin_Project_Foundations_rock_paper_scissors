@@ -10,6 +10,11 @@
 
     <script>
 
+let playerWins = 0;
+let computerWins = 0;
+
+while (playerWins < 5 && computerWins < 5) {
+
 let playerSelectionCaps;
 playerSelectionCaps = prompt("Rock paper or scissors?");
 
@@ -35,14 +40,26 @@ return options[rand];
 const computerSelection = getComputerChoise();
 console.log(computerSelection);
 
+
+
+function keepScore(playerWins,computerWins) {
+    let score = `You ${playerWins} - ${computerWins} Computer`;
+    return score;
+
+}
+
 if (playerSelection == computerSelection) {
     console.log("draw"); }
    
 else {
     if (playerSelection == "rock") {
         if (computerSelection == "paper") {
-            console.log("You lost.Paper wins rock!"); }
+            computerWins = computerWins +1;
+            console.log("You lost.Paper wins rock!"); 
+             }
+
         else {
+            playerWins = playerWins +1;
             console.log("You won.Rock beats scissors!");
         }    
         
@@ -50,24 +67,32 @@ else {
 
     else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
+            playerWins = playerWins +1;
             console.log("You won.Paper beats rock");}
         else {
+            computerWins = computerWins +1;
             console.log("You lost.Scissor beats paper");
         }
     }
 
     else if (playerSelection == "scissors") {
         if (computerSelection == "rock") {
+            computerWins = computerWins +1;
             console.log("You lost.Rock beats scissors");}
         else {
+            playerWins = playerWins +1;
             console.log("You won.Scissors beats paper");
         }
     }
+}
+console.log(keepScore(playerWins,computerWins));
+}
 
-
-}    
-
-
+if (playerWins == 5) {
+    console.log("You won!");
+}  else {
+    console.log("You lost!")
+}
 
     </script> 
 </body>
