@@ -7,26 +7,43 @@
     <title>Document</title>
 </head>
 <body>
+<button id="rock">Rock</button>
+<button id="paper">Paper</button>
+<button id="scissors">Scissors</button>
 
-    <script>
+<div id="result"></div>
+
+
+
+
+
+<script>
+
+const rck = document.querySelector('#rock');
+const ppr = document.querySelector('#paper');
+const scrs = document.querySelector('#scissors');
+const result = document.querySelector('#result');
+const aScore = document.createElement('div');
+const whoWon = document.createElement('div');
+const endRes = document.createElement('div');
+result.appendChild(whoWon);
+result.appendChild(aScore);
+result.appendChild(endRes);
+
 
 let playerWins = 0;
 let computerWins = 0;
 
-while (playerWins < 5 && computerWins < 5) {
 
-let playerSelectionCaps;
-playerSelectionCaps = prompt("Rock paper or scissors?");
+
+
 
 
 let playerSelection;
-playerSelection =  playerSelectionCaps.toLowerCase();
+
 
  
-while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-    playerSelectionCaps = prompt("Pick one of the three values please");
-    playerSelection =  playerSelectionCaps.toLowerCase();
-}
+
 
 function getComputerChoice() {
 const options = ["rock", "paper", "scissors"];
@@ -37,8 +54,7 @@ return options[rand];
 }
 
 
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
+let computerSelection ;
 
 
 
@@ -48,19 +64,29 @@ function keepScore(playerWins,computerWins) {
 
 }
 
+function playRound(playerSelection,computerSelection) {
+    
+    getComputerChoice();
+    computerSelection = getComputerChoice();
+    console.log(computerSelection);
+
+    if (playerWins > 4 || computerWins > 4) {
+        return;
+    }
+
 if (playerSelection == computerSelection) {
-    console.log("draw"); }
+    whoWon.textContent = "draw"; }
    
 else {
     if (playerSelection == "rock") {
         if (computerSelection == "paper") {
             computerWins = computerWins +1;
-            console.log("You lost.Paper wins rock!"); 
+            whoWon.textContent = "You lost.Paper wins rock!"; 
              }
 
         else {
             playerWins = playerWins +1;
-            console.log("You won.Rock beats scissors!");
+            whoWon.textContent = "You won.Rock beats scissors!";
         }    
         
     }
@@ -68,31 +94,61 @@ else {
     else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
             playerWins = playerWins +1;
-            console.log("You won.Paper beats rock");}
+            whoWon.textContent = "You won.Paper beats rock";}
         else {
             computerWins = computerWins +1;
-            console.log("You lost.Scissor beats paper");
+            whoWon.textContent = "You lost.Scissor beats paper";
         }
     }
 
     else if (playerSelection == "scissors") {
         if (computerSelection == "rock") {
             computerWins = computerWins +1;
-            console.log("You lost.Rock beats scissors");}
+            whoWon.textContent = "You lost.Rock beats scissors";}
         else {
             playerWins = playerWins +1;
-            console.log("You won.Scissors beats paper");
+            whoWon.textContent = "You won.Scissors beats paper";
         }
     }
 }
 console.log(keepScore(playerWins,computerWins));
-}
+aScore.textContent = keepScore(playerWins,computerWins);
 
 if (playerWins == 5) {
-    console.log("You won!");
-}  else {
-    console.log("You lost!")
+    endRes.textContent = "You won !!!";
+    
+
 }
+
+if (computerWins == 5) {
+    endRes.textContent = "You lost !!!";  
+    
+}
+
+}
+
+
+
+rck.addEventListener('click', () => {
+    playerSelection = "rock";
+    return playRound(playerSelection,computerSelection);
+    
+});
+
+
+ppr.addEventListener('click', () => {
+    playerSelection = "paper";
+    return playRound(playerSelection,computerSelection);
+});
+
+scrs.addEventListener('click', () => {
+    playerSelection = "scissors";
+    return playRound(playerSelection,computerSelection);
+});
+
+
+
+
 
     </script> 
 </body>
