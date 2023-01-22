@@ -1,5 +1,30 @@
-.container {
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
 
+
+
+.bigContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+
+.container {
+display: flex;
+flex-flow: column nowrap;
+margin-bottom: 20px;
+justify-content: center;
+align-items: center;
 }
 
 .buttons {
@@ -8,27 +33,59 @@
 
 
 #rock {
-
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 20px;
 }
 
 
 #paper {
-
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 20px;
 }
 
 #scissors {
-
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 20px;
 }
 
 #result {
-
+    border: solid red;
+    border-radius: 10px;
+    width: 500px;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 5px;
+    color: wheat;
 }
 
 #score {
-
+    border: solid red;
+    border-radius: 10px;
+    width: 500px;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    color: wheat;
 }
 
 
 #endResult {
-    
+    border: solid red;
+    border-radius: 10px;
+    width: 500px;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    color: wheat;
 }
