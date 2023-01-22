@@ -3,153 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="myScript.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock paper Scissors</title>
 </head>
 <body>
-<button id="rock">Rock</button>
-<button id="paper">Paper</button>
-<button id="scissors">Scissors</button>
+<div class="container">
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
 
-<div id="result"></div>
+    <div id="result"></div>
+    <div id="score"></div>
+    <div id="endResult"></div>
 
-
-
-
-
-<script>
-
-const rck = document.querySelector('#rock');
-const ppr = document.querySelector('#paper');
-const scrs = document.querySelector('#scissors');
-const result = document.querySelector('#result');
-const aScore = document.createElement('div');
-const whoWon = document.createElement('div');
-const endRes = document.createElement('div');
-result.appendChild(whoWon);
-result.appendChild(aScore);
-result.appendChild(endRes);
-
-
-let playerWins = 0;
-let computerWins = 0;
-
-
-
-
-
-
-let playerSelection;
-
-
- 
-
-
-function getComputerChoice() {
-const options = ["rock", "paper", "scissors"];
-let rand = Math.random();
-rand *= options.length;
-rand = Math.floor(rand);
-return options[rand];
-}
-
-
-let computerSelection ;
-
-
-
-function keepScore(playerWins,computerWins) {
-    let score = `You ${playerWins} - ${computerWins} Computer`;
-    return score;
-
-}
-
-function playRound(playerSelection,computerSelection) {
-    
-    getComputerChoice();
-    computerSelection = getComputerChoice();
-    console.log(computerSelection);
-
-    if (playerWins > 4 || computerWins > 4) {
-        return;
-    }
-
-if (playerSelection == computerSelection) {
-    whoWon.textContent = "draw"; }
-   
-else {
-    if (playerSelection == "rock") {
-        if (computerSelection == "paper") {
-            computerWins = computerWins +1;
-            whoWon.textContent = "You lost.Paper wins rock!"; 
-             }
-
-        else {
-            playerWins = playerWins +1;
-            whoWon.textContent = "You won.Rock beats scissors!";
-        }    
-        
-    }
-
-    else if (playerSelection == "paper") {
-        if (computerSelection == "rock") {
-            playerWins = playerWins +1;
-            whoWon.textContent = "You won.Paper beats rock";}
-        else {
-            computerWins = computerWins +1;
-            whoWon.textContent = "You lost.Scissor beats paper";
-        }
-    }
-
-    else if (playerSelection == "scissors") {
-        if (computerSelection == "rock") {
-            computerWins = computerWins +1;
-            whoWon.textContent = "You lost.Rock beats scissors";}
-        else {
-            playerWins = playerWins +1;
-            whoWon.textContent = "You won.Scissors beats paper";
-        }
-    }
-}
-console.log(keepScore(playerWins,computerWins));
-aScore.textContent = keepScore(playerWins,computerWins);
-
-if (playerWins == 5) {
-    endRes.textContent = "You won !!!";
-    
-
-}
-
-if (computerWins == 5) {
-    endRes.textContent = "You lost !!!";  
-    
-}
-
-}
-
-
-
-rck.addEventListener('click', () => {
-    playerSelection = "rock";
-    return playRound(playerSelection,computerSelection);
-    
-});
-
-
-ppr.addEventListener('click', () => {
-    playerSelection = "paper";
-    return playRound(playerSelection,computerSelection);
-});
-
-scrs.addEventListener('click', () => {
-    playerSelection = "scissors";
-    return playRound(playerSelection,computerSelection);
-});
-
-
-
-
-
-    </script> 
+</div>
 </body>
 </html>
