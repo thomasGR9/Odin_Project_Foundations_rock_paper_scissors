@@ -4,6 +4,7 @@ const scrs = document.querySelector('#scissors');
 const result = document.querySelector('#result');
 const score = document.querySelector('#score');
 const endResult = document.querySelector('#endResult');
+const buttons = document.querySelectorAll('button');
 const aScore = document.createElement('div');
 const whoWon = document.createElement('div');
 const endRes = document.createElement('div');
@@ -16,14 +17,7 @@ let playerWins = 0;
 let computerWins = 0;
 
 
-
-
-
-
 let playerSelection;
-
-
- 
 
 
 function getComputerChoice() {
@@ -45,6 +39,19 @@ function keepScore(playerWins,computerWins) {
 
 }
 
+function scoreColors (playerWins, computerWins) {
+    if (playerWins > computerWins) {
+        score.style.backgroundColor = 'green';
+    } else if (playerWins < computerWins) {
+        score.style.backgroundColor = 'red';  
+    } else {
+        score.style.backgroundColor = 'black';
+    }
+}
+
+
+
+
 function playRound(playerSelection,computerSelection) {
     
     getComputerChoice();
@@ -54,20 +61,25 @@ function playRound(playerSelection,computerSelection) {
     if (playerWins > 4 || computerWins > 4) {
         return;
     }
+    
 
 if (playerSelection == computerSelection) {
-    whoWon.textContent = "draw"; }
+    whoWon.textContent = "draw"; 
+    result.style.backgroundColor = 'black';
+}
    
 else {
     if (playerSelection == "rock") {
         if (computerSelection == "paper") {
             computerWins = computerWins +1;
             whoWon.textContent = "You lost.Paper wins rock!"; 
+            result.style.backgroundColor = 'red';
              }
 
         else {
             playerWins = playerWins +1;
             whoWon.textContent = "You won.Rock beats scissors!";
+            result.style.backgroundColor = 'green';
         }    
         
     }
@@ -75,35 +87,42 @@ else {
     else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
             playerWins = playerWins +1;
-            whoWon.textContent = "You won.Paper beats rock";}
+            whoWon.textContent = "You won.Paper beats rock";
+            result.style.backgroundColor = 'green';
+        }
         else {
             computerWins = computerWins +1;
             whoWon.textContent = "You lost.Scissor beats paper";
+            result.style.backgroundColor = 'red';
         }
     }
 
     else if (playerSelection == "scissors") {
         if (computerSelection == "rock") {
             computerWins = computerWins +1;
-            whoWon.textContent = "You lost.Rock beats scissors";}
+            whoWon.textContent = "You lost.Rock beats scissors";
+            result.style.backgroundColor = 'red';
+        }
         else {
             playerWins = playerWins +1;
             whoWon.textContent = "You won.Scissors beats paper";
+            result.style.backgroundColor = 'green';
         }
     }
 }
 console.log(keepScore(playerWins,computerWins));
+scoreColors (playerWins, computerWins);
 aScore.textContent = keepScore(playerWins,computerWins);
 
 if (playerWins == 5) {
     endRes.textContent = "You won !!!";
-    
+    endResult.style.backgroundColor = 'green';
 
 }
 
 if (computerWins == 5) {
     endRes.textContent = "You lost !!!";  
-    
+    endResult.style.backgroundColor = 'red';
 }
 
 }
@@ -113,7 +132,8 @@ if (computerWins == 5) {
 rck.addEventListener('click', () => {
     playerSelection = "rock";
     return playRound(playerSelection,computerSelection);
-    
+
+   
 });
 
 
