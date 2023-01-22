@@ -27,9 +27,6 @@ justify-content: center;
 align-items: center;
 }
 
-.buttons {
-
-}
 
 
 #rock {
@@ -38,13 +35,15 @@ align-items: center;
     border-radius: 50px;
     margin: 20px;
     font-size: 20px;
-    transition: all 0s;
+    transition: all 0.07s;
 }
 
-#rockClicked {
-transform: scale(1.1);
-box-shadow: 0 0 10px #ffc600;
+#rock:hover {
+    transform: scale(1.1);
+border-color: rgb(112, 7, 112);
+box-shadow: 0 0 20px rgb(112, 7, 112) ;
 }
+
 
 
 #paper {
@@ -56,9 +55,10 @@ box-shadow: 0 0 10px #ffc600;
     transition: all 0.07s;
 }
 
-#paperClicked {
+#paper:hover {
 transform: scale(1.1);
-box-shadow: 0 0 10px #ffc600;
+border-color: rgb(112, 7, 112);
+box-shadow: 0 0 20px rgb(112, 7, 112) ;
 }
 
 #scissors {
@@ -70,10 +70,12 @@ box-shadow: 0 0 10px #ffc600;
     transition: all 0.07s;
 }
 
-#scissorsClicked {
- transform: scale(1.1);
-box-shadow: 0 0 10px #ffc600;
-}
+#scissors:hover {
+    transform: scale(1.1);
+    border-color: rgb(112, 7, 112);
+    box-shadow: 0 0 20px rgb(112, 7, 112) ;
+ }
+
 
 #result {
     border: solid red;

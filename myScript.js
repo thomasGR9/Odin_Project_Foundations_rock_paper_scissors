@@ -132,8 +132,7 @@ if (computerWins == 5) {
 rck.addEventListener('click', () => {
     playerSelection = "rock";
     return playRound(playerSelection,computerSelection);
-
-   
+       
 });
 
 
@@ -146,6 +145,8 @@ scrs.addEventListener('click', () => {
     playerSelection = "scissors";
     return playRound(playerSelection,computerSelection);
 });
+
+
 
 
 
